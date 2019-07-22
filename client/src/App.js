@@ -18,7 +18,13 @@ const App = () => {
 
       <Switch>
         <Route exact path="/" component={MovieList} />
-        <Route exact path="/movies/:id" component={Movie} />
+        <Route
+          exact
+          path="/movies/:id"
+          component={({ match }) => (
+            <Movie match={match} addToSavedList={addToSavedList} />
+          )}
+        />
       </Switch>
     </div>
   );
