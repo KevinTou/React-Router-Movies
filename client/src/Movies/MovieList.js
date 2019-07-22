@@ -23,19 +23,15 @@ const MovieList = props => {
 
   return (
     <div className="movie-list">
-      {movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
-      ))}
+      {movies.map(movie => {
+        return (
+          <Link to={`/movies/${movie.id}`}>
+            <MovieCard key={movie.id} movie={movie} />
+          </Link>
+        );
+      })}
     </div>
   );
 };
-
-function MovieDetails({ movie }) {
-  return (
-    <Link to={`/movies/${movie.id}`}>
-      <MovieCard movie={movie} />
-    </Link>
-  );
-}
 
 export default MovieList;
